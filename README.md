@@ -1,0 +1,1 @@
+This is a project for JavaScript section of The Odin Project to test and practice DOM manipulation, as well as many of the other skills I have learned already. It will be challenging and I plan on using Google a lot to search up concepts and look for answers in various forums. 
