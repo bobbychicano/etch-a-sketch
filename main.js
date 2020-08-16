@@ -8,7 +8,7 @@ for (let i = 0; i < 16; i++) {
   container.appendChild(cell);
 };
 
-container.style.cssText = "height: 75vh; width: 60vw; margin: 0 auto; display: grid; grid-template-columns: repeat(4, 1fr); grid-template-rows: repeat(4, 1fr); grid-gap: ";
+container.style.cssText = "height: 640px; width: 960px; margin: 0 auto; display: grid; grid-template-columns: repeat(4, 1fr); grid-template-rows: repeat(4, 1fr); grid-gap: ";
 
 const gridCells = document.getElementsByClassName('cell');
 for (let c = 0; c < gridCells.length; c++) {
@@ -16,22 +16,25 @@ for (let c = 0; c < gridCells.length; c++) {
   gridCells[c].style.border = '1px solid black';
 };
 
+// Hover function to change grid cell color
 for (let b = 0; b < gridCells.length; b++) {
   gridCells[b].addEventListener('mouseover', function(e) {
     e.target.style.background = 'orange';
   });
 };
 
+// Creating and styling the reset button
+const body = document.querySelector('body');
+const buttonContainer = document.createElement('div');
+const button = document.createElement('button');
+button.textContent = "Click Me";
 
-// hover state
-/*
-In CSS you usually add a hover declaration. So in Javascript you could do something similar? Another classList.add but with hover? Like so cell.classList.add('cell:hover'). This route doesn't really make sense becasue I'm not supposed to be adding another class, I'm supposed to be affecting the same element on hover.
+buttonContainer.appendChild(button);
+buttonContainer.style.cssText = "margin: 20px auto; text-align: center; border: 1px solid black";
+button.style.cssText = "margin: 10px; padding: 10px 20px; color: white; background: #5DADE2; border: none";
 
-Or I can add a class with all of the styling that I want when the mouse hovers over the div.
+body.insertBefore(buttonContainer, container);
 
-There should be something in 'events' from JavaScript that I can effect.
 
-*/
 
-// Function to clear the current screen and create new grid
-// Should use a <button> and run when clicked
+// button will be an event listener that will clear the current grid, send the user a pop-up asking for how many squares per side to make the new grid.
