@@ -35,6 +35,11 @@ button.style.cssText = "margin: 10px; padding: 10px 20px; color: white; backgrou
 
 body.insertBefore(buttonContainer, container);
 
-
+// Click function
+button.addEventListener('click', function() {
+  for (let i = 0; i < gridCells.length; i++) {
+    gridCells[i].style.background = '#F9E79F';
+  };
+});
 
 // button will be an event listener that will clear the current grid, send the user a pop-up asking for how many squares per side to make the new grid.
