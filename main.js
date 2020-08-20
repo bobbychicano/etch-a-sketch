@@ -11,13 +11,14 @@ let makeGrid = function() {
     newCell.classList.add('cell', `cell-${i}`);
 
     container.appendChild(newCell);
+
+    // Style the container
+    container.style.cssText = `height: 576px; width: 576px; margin: 0 auto; display: grid; grid-template-columns: repeat(${columns}, 1fr); grid-template-rows: repeat(${rows}, 1fr);`
   };
 };
 
 makeGrid();
 
-// Style the container
-container.style.cssText = `height: 576px; width: 576px; margin: 0 auto; display: grid; grid-template-columns: repeat(${columns}, 1fr); grid-template-rows: repeat(${rows}, 1fr);`
 
 // Style the grid cells
 const gridCells = document.querySelectorAll('.cell');
@@ -60,9 +61,7 @@ button.addEventListener('click', function() {
 // Click function to remove old grid and create new grid
 button.addEventListener('click', function() {
 
-  //remove the old divs (newCell)
-  //get a static NodeList OR Use a different loop
-    // the while loop?
+  //remove the old divs
 
   for (let r = 0; r < gridCells.length; r++) {
     container.removeChild(gridCells[r]);
@@ -73,10 +72,21 @@ button.addEventListener('click', function() {
   columns = newGrid;
   makeGrid();
 
-  for (let c = 0; c < gridCells.length; c++) {
-    gridCells[c].style.background = '#F9E79F';
-    gridCells[c].style.border = '1px solid black';
+// how can I style the cells after they've been added.
+  //style the new cells
+  let styleAgain = document.querySelectorAll('.cell');
+
+  for (let n = 0; n < styleAgain.length; n++) {
+    styleAgain[n].style.background = '#F9E79F';
+    styleAgain[n].style.border = '1px solid black';
   };
+
+  for (let b = 0; b < styleAgain.length; b++) {
+    styleAgain[b].addEventListener('mouseover', function(e) {
+      e.target.style.background = 'orange';
+    });
+  };
+
 });
 
 // should I convert the initial grid into a function so that I can call it after I reset it?
