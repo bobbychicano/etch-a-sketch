@@ -51,14 +51,26 @@ body.insertBefore(buttonContainer, container);
 // Click function to remove old grid and create new grid
 button.addEventListener('click', function() {
 
-
   let removeOldGrid = container.querySelectorAll('.cell');
 
   for (let j = 0; j < removeOldGrid.length; j++) {
     container.removeChild(removeOldGrid[j]);
   };
 
-  newGrid = Number(prompt("Let's make a new grid. How many squares per side do you want?"));
+  let newGrid = '';
+
+  //An 'if' function to ensure the user inputs a prompt.
+  //Or would a 'while' loop function better here?
+
+  while (true) {
+    newGrid = +prompt("Let's make a new grid. How many squares per side do you want?");
+
+    if (!newGrid) continue;
+
+    if (newGrid > 0) break;
+
+  };
+
   rows = newGrid;
   columns = newGrid;
   makeGrid();
