@@ -11,25 +11,25 @@ let makeGrid = function() {
     newCell.classList.add('cell', `cell-${i}`);
 
     container.appendChild(newCell);
-
-    // Style the container
-    container.style.cssText = `height: 576px; width: 576px; margin: 0 auto; display: grid; grid-template-columns: repeat(${columns}, 1fr); grid-template-rows: repeat(${rows}, 1fr);`
   };
+
+  // Style the container
+  container.style.cssText = `height: 576px; width: 576px; margin: 0 auto; display: grid; grid-template-columns: repeat(${columns}, 1fr); grid-template-rows: repeat(${rows}, 1fr);`
 };
 
 makeGrid();
 
 
-// Style the grid cells
-const gridCells = document.querySelectorAll('.cell');
+// Style all of the grid cells
+const gridCells = document.getElementsByClassName('cell');
 for (let c = 0; c < gridCells.length; c++) {
   gridCells[c].style.background = '#F9E79F';
   gridCells[c].style.border = '1px solid black';
 };
 
 // Hover function to change grid cell color
-for (let b = 0; b < gridCells.length; b++) {
-  gridCells[b].addEventListener('mouseover', function(e) {
+for (let h = 0; h < gridCells.length; h++) {
+  gridCells[h].addEventListener('mouseover', function(e) {
     e.target.style.background = 'orange';
   });
 };
@@ -37,6 +37,7 @@ for (let b = 0; b < gridCells.length; b++) {
 // Creating and styling the reset button
 const body = document.querySelector('body');
 const buttonContainer = document.createElement('div');
+buttonContainer.classList.add('reset-button');
 const button = document.createElement('button');
 button.textContent = "Click Me";
 
@@ -46,25 +47,15 @@ button.style.cssText = "margin: 10px; padding: 10px 20px; color: white; backgrou
 
 body.insertBefore(buttonContainer, container);
 
-/*
-
-//THis arrary is what is creating an issue here
-// Click function to clear hover
-button.addEventListener('click', function() {
-  for (let i = 0; i < gridCells.length; i++) {
-    gridCells[i].style.background = '#F9E79F';
-  };
-});
-
-*/
 
 // Click function to remove old grid and create new grid
 button.addEventListener('click', function() {
 
-  //remove the old divs
 
-  for (let r = 0; r < gridCells.length; r++) {
-    container.removeChild(gridCells[r]);
+  let removeOldGrid = container.querySelectorAll('.cell');
+
+  for (let j = 0; j < removeOldGrid.length; j++) {
+    container.removeChild(removeOldGrid[j]);
   };
 
   newGrid = Number(prompt("Let's make a new grid. How many squares per side do you want?"));
@@ -72,7 +63,6 @@ button.addEventListener('click', function() {
   columns = newGrid;
   makeGrid();
 
-// how can I style the cells after they've been added.
   //style the new cells
   let styleAgain = document.querySelectorAll('.cell');
 
@@ -86,7 +76,4 @@ button.addEventListener('click', function() {
       e.target.style.background = 'orange';
     });
   };
-
 });
-
-// should I convert the initial grid into a function so that I can call it after I reset it?
