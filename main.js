@@ -59,16 +59,12 @@ button.addEventListener('click', function() {
 
   let newGrid = '';
 
-  //An 'if' function to ensure the user inputs a prompt.
-  //Or would a 'while' loop function better here?
-
   while (true) {
     newGrid = +prompt("Let's make a new grid. How many squares per side do you want?");
 
     if (!newGrid) continue;
 
     if (newGrid > 0) break;
-
   };
 
   rows = newGrid;
