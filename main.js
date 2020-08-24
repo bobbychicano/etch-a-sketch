@@ -51,25 +51,22 @@ body.insertBefore(buttonContainer, container);
 // Click function to remove old grid and create new grid
 button.addEventListener('click', function() {
 
-  let removeOldGrid = container.querySelectorAll('.cell');
+  let newGrid = +prompt("Let's make a new grid. How many squares per side do you want?");
 
-  for (let j = 0; j < removeOldGrid.length; j++) {
-    container.removeChild(removeOldGrid[j]);
-  };
+    if (newGrid == 0 || isNaN(newGrid)) {
+      alert("Please input a valid number");
+    } else {
+      let removeOldGrid = container.querySelectorAll('.cell');
 
-  let newGrid = '';
+      for (let j = 0; j < removeOldGrid.length; j++) {
+        container.removeChild(removeOldGrid[j]);
+      };
 
-  while (true) {
-    newGrid = +prompt("Let's make a new grid. How many squares per side do you want?");
+      rows = newGrid;
+      columns = newGrid;
 
-    if (!newGrid) continue;
-
-    if (newGrid > 0) break;
-  };
-
-  rows = newGrid;
-  columns = newGrid;
-  makeGrid();
+      makeGrid();
+    }
 
   //style the new cells
   let styleAgain = document.querySelectorAll('.cell');
