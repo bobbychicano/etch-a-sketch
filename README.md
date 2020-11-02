@@ -8,6 +8,8 @@ This project tested my abilities in DOM Manipulation and helped me grow my under
 
 Notably, it helped me learn more about an HTMLCollection versus a NodeList when attempting to select many elements at one time.
 
+You can find this web application hosted here: https://bobbychicano.github.io/etch-a-sketch/
+
 ---
 
 Technologies used:
