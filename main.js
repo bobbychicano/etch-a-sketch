@@ -66,7 +66,7 @@ button.addEventListener('click', function() {
       columns = newGrid;
 
       makeGrid();
-    }
+    };
 
   //style the new cells
   let styleAgain = document.querySelectorAll('.cell');
